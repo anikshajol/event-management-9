@@ -1,19 +1,40 @@
 import { NavLink } from "react-router-dom";
+import "./Navbar.css";
 
 const Navbar = () => {
   const navLinks = (
     <>
-      <li>
-        <NavLink to={"/home"}>Home</NavLink>
+      <li className="">
+        <NavLink
+          className={({ isActive }) => (isActive ? "active-grad" : "")}
+          to={"/home"}
+        >
+          Home
+        </NavLink>
+      </li>
+      <li className="">
+        <NavLink
+          className={({ isActive }) => (isActive ? "active-grad" : "")}
+          to={"/about"}
+        >
+          About
+        </NavLink>
       </li>
       <li>
-        <NavLink to={"/about"}>About</NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "active-grad" : "")}
+          to={"/events"}
+        >
+          Events
+        </NavLink>
       </li>
       <li>
-        <NavLink to={"/events"}>Events</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/Login"}>Login</NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "active-grad" : "")}
+          to={"/Login"}
+        >
+          Login
+        </NavLink>
       </li>
     </>
   );
@@ -41,7 +62,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="  menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               {navLinks}
             </ul>
@@ -49,7 +70,7 @@ const Navbar = () => {
           <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{navLinks}</ul>
+          <ul className=" flex items-center gap-8">{navLinks}</ul>
         </div>
         <div className="navbar-end">
           <a className="btn">Button</a>
