@@ -35,3 +35,31 @@
 .get-started:hover {
   background-color: #ffbe30;
 }
+
+.discount-offer {
+  background-image: linear-gradient(
+    to right,
+    #ff512f 0%,
+    #f09819 51%,
+    #ff512f 100%
+  );
+  /* height: 200px; */
+  padding: 5rem 0;
+}
+
+.offer-btn {
+  background-color: #fff;
+  font-weight: 700;
+  padding: 12px 30px;
+  color: #ffbe30;
+  border-radius: 30px;
+  font-size: 14px;
+  text-transform: uppercase;
+  border: 1px solid #ffbe30;
+}
+
+.offer-btn:hover {
+  background-color: #ff512f;
+  color: white;
+  border: 1px solid #ff512f;
+}

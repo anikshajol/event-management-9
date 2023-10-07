@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import image1 from "../../assets/brides-couple-cutting-wedding-cake.jpg";
 import "./Home.css";
+import Footer from "../Shared/Footer/Footer";
 
 const Home = () => {
   return (
@@ -32,6 +33,23 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <div className="discount-offer flex justify-around items-center ">
+        <div>
+          <h2 className="text-white font-semibold text-2xl">
+            <span className="text-4xl font-bold text-[#ffbe30;]">30%</span> Off
+            In November-December For Wedding Events
+          </h2>
+          <p className="">
+            {" "}
+            Contact us and make your event unique & unforgettable{" "}
+          </p>
+        </div>
+        <div>
+          <button className="offer-btn">Contact us</button>
+        </div>
+      </div>
+
+      <Footer></Footer>
     </div>
   );
 };

@@ -1,20 +1,12 @@
-.active-grad {
+.nav-btn {
   background-image: linear-gradient(
     to right,
     #ff512f 0%,
     #f09819 51%,
     #ff512f 100%
   );
-  /* margin: 5px; */
   padding: 5px 10px;
-  text-align: center;
-  /* text-transform: uppercase; */
-  /* transition: 0.5s; */
-  background-size: 100% auto;
-  color: white;
-  box-shadow: 0 0 20px #eee;
   border-radius: 10px;
-  display: block;
 }
 
 ul li a {
@@ -35,7 +27,7 @@ ul li a:hover {
   /* transition: 0.5s; */
   background-size: 100% auto;
   color: white;
-  box-shadow: 0 0 20px #eee;
+  /* box-shadow: 0 0 20px #eee; */
   border-radius: 10px;
   display: block;
 }

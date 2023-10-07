@@ -32,9 +32,9 @@ const Navbar = () => {
       <li>
         <NavLink
           className={({ isActive }) => (isActive ? "active-grad" : "")}
-          to={"/Login"}
+          to={"/contact"}
         >
-          Login
+          Contact Us
         </NavLink>
       </li>
     </>
@@ -42,7 +42,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-black text-white">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -76,7 +76,9 @@ const Navbar = () => {
           <ul className=" flex items-center gap-8">{navLinks}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          <Link to={"/login"} className="nav-btn">
+            Login
+          </Link>
         </div>
       </div>
     </div>
