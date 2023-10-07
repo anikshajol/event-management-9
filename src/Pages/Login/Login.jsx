@@ -1,17 +1,47 @@
 import { Link } from "react-router-dom";
 import loginBg from "../../assets/login-bg.jpg";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
+import toast from "react-hot-toast";
 
 const Login = () => {
-  const { name } = useContext(AuthContext);
+  const [error, setError] = useState("");
+
+  const { loginUser, signInWithGoogle } = useContext(AuthContext);
 
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     console.log(email, password);
+
+    // sign in
+
+    setError("");
+
+    loginUser(email, password)
+      .then((res) => {
+        console.log(res.user);
+        toast.success("Successfully Login!");
+      })
+      .catch((err) => {
+        console.log(err);
+        setError("Invalid Password/Email");
+      });
+  };
+
+  //   google sign in
+
+  const handleGoogleSignIn = () => {
+    signInWithGoogle()
+      .then((result) => {
+        console.log(result.user);
+        toast.success("Successfully Login!");
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
   };
 
   return (
@@ -63,13 +93,18 @@ const Login = () => {
           <button type="submit" className="w-full primary-btn">
             Login to your account
           </button>
+        </form>
 
-          <button className="w-full py-2 border border-[#ffbe30] btn-outline text-white rounded-3xl">
+        <div className="">
+          <button
+            onClick={handleGoogleSignIn}
+            className="w-full my-3 py-2 border border-[#ffbe30] btn-outline text-white rounded-3xl"
+          >
             <div className="flex items-center justify-center gap-4">
-              <div className="text-4xl">
+              <span className="text-4xl">
                 <FcGoogle />
-              </div>
-              <div>Login With Google</div>
+              </span>
+              <p>Login With Google</p>
             </div>
           </button>
           <div className="text-sm font-medium text-center text-white dark:text-gray-300">
@@ -81,7 +116,9 @@ const Login = () => {
               Create account
             </Link>
           </div>
-        </form>
+
+          {error && <p className="text-red-600 text-center">{error}</p>}
+        </div>
       </div>
     </div>
   );

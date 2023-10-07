@@ -1,8 +1,24 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import logo from "../../../assets/logo.png";
+import { useContext } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    logOut()
+      .then((res) => {
+        console.log(res.user);
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+
   const navLinks = (
     <>
       <li className="">
@@ -76,9 +92,17 @@ const Navbar = () => {
           <ul className=" flex items-center gap-8">{navLinks}</ul>
         </div>
         <div className="navbar-end">
-          <Link to={"/login"} className="nav-btn">
-            Login
-          </Link>
+          {user && <Link className="user-name">{user.displayName}</Link>}
+
+          {!user ? (
+            <Link to={"/login"} className="nav-btn">
+              Login
+            </Link>
+          ) : (
+            <Link onClick={handleLogOut} className="nav-btn">
+              Logout
+            </Link>
+          )}
         </div>
       </div>
     </div>
