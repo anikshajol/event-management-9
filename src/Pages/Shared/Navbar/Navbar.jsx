@@ -1,5 +1,6 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
+import logo from "../../../assets/logo.png";
 
 const Navbar = () => {
   const navLinks = (
@@ -67,7 +68,9 @@ const Navbar = () => {
               {navLinks}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+          <Link to={"/"} className="w-16">
+            <img src={logo} alt="" />
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className=" flex items-center gap-8">{navLinks}</ul>

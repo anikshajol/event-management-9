@@ -1,0 +1,37 @@
+.primary-btn {
+  background-image: linear-gradient(
+    to right,
+    #ff512f 0%,
+    #f09819 51%,
+    #ff512f 100%
+  );
+  /* margin: 10px; */
+  padding: 15px 35px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 50px;
+  display: block;
+}
+
+.primary-btn:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.get-started {
+  font-weight: 700;
+  padding: 12px 30px;
+  color: #ffffff;
+  border-radius: 30px;
+  font-size: 14px;
+  text-transform: uppercase;
+  border: 3px solid #ffbe30;
+}
+
+.get-started:hover {
+  background-color: #ffbe30;
+}
