@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "Grand Wedding Celebration",
+    "image": "https://i.ibb.co/fH41C5m/brides-couple-cutting-wedding-cake.jpg",
+    "price": 6000,
+    "description": "Plan the fairy-tale wedding of your dreams with our expert event management team. From the ceremony to the reception, we ensure an unforgettable celebration of love."
+  },
+  {
+    "id": 2,
+    "title": "Joyful Birthday Bash",
+    "image": "https://i.ibb.co/GppzRLh/young-joyful-friends-celebrating.jpg",
+    "price": 3000,
+    "description": "Celebrate life's milestones with a joyful birthday party organized by our skilled event planners. Cake, balloons, and laughter included!"
+  },
+  {
+    "id": 3,
+    "title": "Sweet Baby Shower",
+    "image": "https://i.ibb.co/6HbbNBQ/front-view-beautiful-baby-shower-concept.jpg",
+    "price": 2500,
+    "description": "Welcome the newest member of your family with a sweet baby shower designed by our event management experts. Cute decorations, baby games, and sweet treats await."
+  },
+  {
+    "id": 4,
+    "title": "Anniversary ",
+    "image": "https://i.ibb.co/rpYvKM2/beautiful-photozone-with-big-wreath-decorated-with-greenery-roses-centerpiece-candles-sides-garland.jpg",
+    "price": 5000,
+    "description": "Celebrate 25 years of love and companionship with a silver anniversary gala meticulously organized by our event management team. Elegant decor and a touch of glamour await."
+  },
+  {
+    "id": 5,
+    "title": "Engagement Extravaganza",
+    "image": "https://i.ibb.co/DRZbPn6/bride-groom-wedding-reception.jpg",
+    "price": 3500,
+    "description": "Begin your journey to forever with an engagement extravaganza crafted by our expert event planners. Engaging decor, heartwarming toasts, and joyous laughter guaranteed."
+  },
+  {
+    "id": 6,
+    "title": "Promotion Party Fiesta",
+    "image": "https://i.ibb.co/3Tsswmj/cheerful-young-woman-singing-her-friends-party-room-with-neon-lights-smoke.jpg",
+    "price": 4000,
+    "description": "Celebrate professional success with a promotion party fiesta orchestrated by our skilled event management team. Drinks, music, and good vibes to mark your achievements."
+  }
+]
