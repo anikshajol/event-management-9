@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import loginBg from "../../assets/login-bg.jpg";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
+  const { name } = useContext(AuthContext);
+
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -14,8 +19,9 @@ const Login = () => {
       style={{
         backgroundImage: `url(${loginBg})`,
       }}
-      className=" hero hero-overlay h-screen  bg-black bg-opacity-50 "
+      className=" hero h-screen "
     >
+      <div className="hero-overlay bg-black bg-opacity-70 "></div>
       <div className="w-full mx-auto max-w-sm p-4 bg-transparent  rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
         <form onSubmit={handleLogin} className="space-y-6" action="#">
           <h5 className="text-xl font-medium text-white dark:text-white">
@@ -57,7 +63,16 @@ const Login = () => {
           <button type="submit" className="w-full primary-btn">
             Login to your account
           </button>
-          <div className="text-sm font-medium text-white dark:text-gray-300">
+
+          <button className="w-full py-2 border border-[#ffbe30] btn-outline text-white rounded-3xl">
+            <div className="flex items-center justify-center gap-4">
+              <div className="text-4xl">
+                <FcGoogle />
+              </div>
+              <div>Login With Google</div>
+            </div>
+          </button>
+          <div className="text-sm font-medium text-center text-white dark:text-gray-300">
             Not registered?{" "}
             <Link
               to={"/register"}
