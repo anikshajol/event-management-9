@@ -4,5 +4,9 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Events Feature(wedding,birthday etc.)
+- Registration page with Name,Photo Url, email and password. Also have a google login/sign up button.
+- Authentication with Firebase.
+- Using Private route with 3 routes. There could not enter without authentication.
+- Using context api for globally access children.
+- React router , Tailwind CSS, Daisy Ui, React Icons, React hot toast, Firebase, lottie react integration with this project.
