@@ -13,7 +13,11 @@ const Event = ({ event }) => {
         <div className="card-body">
           <h2 className="card-title">{title}</h2>
 
-          <p>{description}</p>
+          <p>
+            {description.length > 50
+              ? description.slice(0, 80) + " ..."
+              : description}
+          </p>
 
           <p className="text-xl text-[#ffbe30] font-bold">${price}</p>
 

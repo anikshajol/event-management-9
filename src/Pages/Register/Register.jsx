@@ -4,27 +4,34 @@ import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [photo, setPhoto] = useState("");
   const [error, setError] = useState("");
+  const { signInWithGoogle } = useContext(AuthContext);
 
   const { createUser } = useContext(AuthContext);
 
-  console.log(email, displayName, password);
+  console.log(email, displayName, password, photo);
 
   const handleCreateUser = () => {
     setError("");
-    createUser(email, password, displayName)
+
+    createUser(email, password, displayName, photo)
       .then((res) => {
         console.log(res.user);
+
         updateProfile(res.user, {
           displayName: displayName,
+          photoURL: photo,
         })
           .then(() => {
             console.log("profile name update");
+            toast.success("Account Create Success!");
           })
           .catch((error) => {
             console.log(error);
@@ -33,6 +40,19 @@ const Register = () => {
       .catch((err) => {
         console.log(err.message);
         setError(err.message);
+      });
+  };
+
+  // google sign in
+
+  const handleGoogleSignIn = () => {
+    signInWithGoogle()
+      .then((result) => {
+        console.log(result.user);
+        toast.success("Successfully Login!");
+      })
+      .catch((err) => {
+        console.log(err.message);
       });
   };
 
@@ -46,24 +66,41 @@ const Register = () => {
       >
         <div className="hero-overlay bg-black bg-opacity-80 "></div>
         <div className="w-full mx-auto max-w-sm p-4 bg-transparent  rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-          <form className="space-y-6" action="#">
+          <div className="space-y-6">
             <h5 className="text-xl font-medium text-white dark:text-white">
               Create an Account
             </h5>
             <div>
               <label
-                htmlFor="name"
+                htmlFor="photo"
                 className="block mb-2 text-sm font-medium text-white dark:text-white"
               >
                 Your Name
               </label>
               <input
                 type="text"
-                name="name"
+                name="photo"
                 onChange={(e) => setDisplayName(e.target.value)}
                 id="name"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                placeholder="John Doe"
+                placeholder="Your Name"
+                required
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="name"
+                className="block mb-2 text-sm font-medium text-white dark:text-white"
+              >
+                Your Photo Url
+              </label>
+              <input
+                type="text"
+                name="name"
+                onChange={(e) => setPhoto(e.target.value)}
+                id="name"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                placeholder="Set Your Photo URL"
                 required
               />
             </div>
@@ -110,7 +147,10 @@ const Register = () => {
               Create account
             </button>
 
-            <button className="w-full py-2 border border-[#ffbe30] btn-outline text-white rounded-3xl">
+            <button
+              onClick={handleGoogleSignIn}
+              className="w-full py-2 border border-[#ffbe30] btn-outline text-white rounded-3xl"
+            >
               <div className="flex items-center justify-center gap-4">
                 <div className="text-4xl">
                   <FcGoogle />
@@ -128,7 +168,7 @@ const Register = () => {
               </Link>
             </div>
             {error ? <p className="text-white">{error}</p> : ""}
-          </form>
+          </div>
         </div>
       </div>
     </div>

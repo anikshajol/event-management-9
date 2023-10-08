@@ -1,6 +1,7 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import logo from "../../../assets/logo.png";
+import userImage from "../../../assets/istockphoto-1130884625-612x612.jpg";
 import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 
@@ -23,7 +24,7 @@ const Navbar = () => {
     <>
       <li className="">
         <NavLink
-          className={({ isActive }) => (isActive ? "active-grad" : "")}
+          className={({ isActive }) => (isActive ? "nav-btn" : "")}
           to={"/home"}
         >
           Home
@@ -31,7 +32,7 @@ const Navbar = () => {
       </li>
       <li className="">
         <NavLink
-          className={({ isActive }) => (isActive ? "active-grad" : "")}
+          className={({ isActive }) => (isActive ? "nav-btn" : "")}
           to={"/about"}
         >
           About
@@ -39,7 +40,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          className={({ isActive }) => (isActive ? "active-grad" : "")}
+          className={({ isActive }) => (isActive ? "nav-btn" : "")}
           to={"/events"}
         >
           Events
@@ -47,7 +48,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          className={({ isActive }) => (isActive ? "active-grad" : "")}
+          className={({ isActive }) => (isActive ? "nav-btn" : "")}
           to={"/contact"}
         >
           Contact Us
@@ -93,6 +94,12 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {user && <Link className="user-name">{user.displayName}</Link>}
+
+          <div className="avatar mx-2">
+            <div className="w-10 rounded-full">
+              <img src={user ? user?.photoURL : userImage} />
+            </div>
+          </div>
 
           {!user ? (
             <Link to={"/login"} className="nav-btn">
