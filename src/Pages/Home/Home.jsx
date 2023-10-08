@@ -15,8 +15,15 @@ import grid9 from "../../assets/gridGallery/front-view-beautiful-baby-shower-con
 import grid10 from "../../assets/gridGallery/marc-babin-aQWmCH_b3MU-unsplash.jpg";
 import grid11 from "../../assets/gridGallery/pineapple-supply-co-qWlkCwBnwOE-unsplash.jpg";
 import grid12 from "../../assets/gridGallery/wout-vanacker-l4HBYkURqvE-unsplash.jpg";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+import Loading from "../Shared/Loading/Loading";
 
 const Home = () => {
+  const { user, loading } = useContext(AuthContext);
+  if (loading) {
+    return <Loading></Loading>;
+  }
   return (
     <div>
       <div
@@ -35,10 +42,16 @@ const Home = () => {
               etc.
             </p>
             <div className="flex flex-row-reverse justify-center gap-5">
-              <Link>
-                {" "}
-                <button className=" get-started">Get Started</button>
-              </Link>
+              {!user ? (
+                <Link className="/register">
+                  {" "}
+                  <button className=" get-started">Get Started</button>
+                </Link>
+              ) : (
+                <Link className="/events">
+                  <button className=" get-started">Our Events</button>
+                </Link>
+              )}
               <Link to={"/about"}>
                 <button className="primary-btn">About Us</button>
               </Link>

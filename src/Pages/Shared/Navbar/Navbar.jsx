@@ -51,7 +51,7 @@ const Navbar = () => {
           className={({ isActive }) => (isActive ? "nav-btn" : "")}
           to={"/contact"}
         >
-          Contact Us
+          Booking
         </NavLink>
       </li>
     </>
@@ -97,7 +97,7 @@ const Navbar = () => {
 
           <div className="avatar mx-2">
             <div className="w-10 rounded-full">
-              <img src={user ? user?.photoURL : userImage} />
+              <img src={user?.photoURL ? user?.photoURL : userImage} />
             </div>
           </div>
 

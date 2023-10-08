@@ -4,13 +4,17 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
 import toast from "react-hot-toast";
+import Loading from "../Shared/Loading/Loading";
 
 const Login = () => {
   const [error, setError] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
 
-  const { loginUser, signInWithGoogle } = useContext(AuthContext);
+  const { loginUser, signInWithGoogle, loading } = useContext(AuthContext);
+  if (loading) {
+    return <Loading></Loading>;
+  }
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -29,8 +33,7 @@ const Login = () => {
         navigate(location?.state ? location.state : "/");
       })
       .catch((err) => {
-        console.log(err);
-        setError("Invalid Password/Email");
+        setError(err.message);
       });
   };
 
@@ -40,7 +43,8 @@ const Login = () => {
     signInWithGoogle()
       .then((result) => {
         console.log(result.user);
-        toast.success("Successfully Login!");
+        toast.success("Successfully Login With Your Google Account!");
+        navigate(location?.state ? location.state : "/");
       })
       .catch((err) => {
         console.log(err.message);

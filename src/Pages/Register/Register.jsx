@@ -1,6 +1,6 @@
 import { FcGoogle } from "react-icons/fc";
 import registerbg from "../../assets/sergio-butko-C3kMhyYeG28-unsplash.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
@@ -13,34 +13,43 @@ const Register = () => {
   const [photo, setPhoto] = useState("");
   const [error, setError] = useState("");
   const { signInWithGoogle } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const { createUser } = useContext(AuthContext);
 
   console.log(email, displayName, password, photo);
 
   const handleCreateUser = () => {
+    // set validation password
     setError("");
+    if (!/(?=.*[A-Z])/.test(password)) {
+      setError("Password must contain at least one uppercase letter");
+    } else if (!/(?=.*[!@#$%^&*(),.?":{}|<>])/.test(password)) {
+      setError("Password must contain at least one Special Character");
+    } else if (!/.{6,}/.test(password)) {
+      setError("Password must contain at least six Characters");
+    } else {
+      createUser(email, password, displayName, photo)
+        .then((res) => {
+          console.log(res.user);
 
-    createUser(email, password, displayName, photo)
-      .then((res) => {
-        console.log(res.user);
-
-        updateProfile(res.user, {
-          displayName: displayName,
-          photoURL: photo,
-        })
-          .then(() => {
-            console.log("profile name update");
-            toast.success("Account Create Success!");
+          updateProfile(res.user, {
+            displayName: displayName,
+            photoURL: photo,
           })
-          .catch((error) => {
-            console.log(error);
-          });
-      })
-      .catch((err) => {
-        console.log(err.message);
-        setError(err.message);
-      });
+            .then(() => {
+              console.log("profile name update");
+              toast.success("Account Create Success!");
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        })
+        .catch((err) => {
+          console.log(err.message);
+          setError(err.message);
+        });
+    }
   };
 
   // google sign in
@@ -49,7 +58,8 @@ const Register = () => {
     signInWithGoogle()
       .then((result) => {
         console.log(result.user);
-        toast.success("Successfully Login!");
+        toast.success("Successfully Login With Your Google Account!");
+        navigate("/");
       })
       .catch((err) => {
         console.log(err.message);
@@ -62,7 +72,7 @@ const Register = () => {
         style={{
           backgroundImage: `url(${registerbg})`,
         }}
-        className=" hero h-screen  "
+        className=" hero h-full  "
       >
         <div className="hero-overlay bg-black bg-opacity-80 "></div>
         <div className="w-full mx-auto max-w-sm p-4 bg-transparent  rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
@@ -167,7 +177,11 @@ const Register = () => {
                 Login
               </Link>
             </div>
-            {error ? <p className="text-white">{error}</p> : ""}
+            {error ? (
+              <p className=" font-bold text-red-400 text-center">{error}</p>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>

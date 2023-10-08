@@ -18,9 +18,9 @@ console.log(greetign);
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: ?
+#### Answer: B
 
-<i>Write your explanation here</i>
+<i>Javascript is Case-sensitive.So Without variable declaration (greetingn) treated as an new. So it will show ReferenceError: greetign is not defined </i>
 
 </p>
 </details>
@@ -43,9 +43,9 @@ sum(1, "2");
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: ?
+#### Answer: C
 
-<i>Write your explanation here</i>
+<i> Number never calculate by mathematically and it will never given any error in Javascript. If we try adding with type of number and type of string it will concatenation. This is called type coercion </i>
 
 </p>
 </details>
@@ -69,9 +69,9 @@ console.log(food);
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: ?
+#### Answer: A
 
-<i>Write your explanation here</i>
+<i>When console food it will not change. the object (info) don't affect the array of food</i>
 
 </p>
 </details>
@@ -94,9 +94,9 @@ console.log(sayHi());
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: ?
+#### Answer:B
 
-<i>Write your explanation here</i>
+<i> function calling without Arguments so when parameter check it will return undefined. </i>
 
 </p>
 </details>
@@ -122,9 +122,9 @@ console.log(count);
 <details><summary><b>Answer</b></summary>
 <p>
 
-#### Answer: ?
+#### Answer: C
 
-<i>Write your explanation here</i>
+<i> condition is checking (num) then current array element truthy or falsy value. If truthy then it will increments 1 . </i>
 
 </p>
 </details>

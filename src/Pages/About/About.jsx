@@ -1,6 +1,14 @@
+import { useContext } from "react";
 import Footer from "../Shared/Footer/Footer";
+import { AuthContext } from "../../Provider/AuthProvider";
+import Loading from "../Shared/Loading/Loading";
 
 const About = () => {
+  const { loading } = useContext(AuthContext);
+  if (loading) {
+    return <Loading></Loading>;
+  }
+
   return (
     <>
       <div className=" px-4 lg:px-8 py-4 ">

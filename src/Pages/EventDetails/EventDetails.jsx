@@ -15,7 +15,6 @@ const EventDetails = () => {
   }, []);
 
   const eventData = eventsData.find((event) => event.id == id);
-  console.log(event);
 
   return (
     <>
