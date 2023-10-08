@@ -19,7 +19,10 @@ const Event = ({ event }) => {
               : description}
           </p>
 
-          <p className="text-xl text-[#ffbe30] font-bold">${price}</p>
+          <p className="text-xl text-[#ffbe30] font-bold">
+            {" "}
+            Price Starts From ${price}
+          </p>
 
           <Link to={`/event/details/${id}`} className=" card-actions ">
             <button className=" card-btn ">Details</button>

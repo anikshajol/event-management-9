@@ -80,13 +80,13 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="  menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="  menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-black rounded-box w-52"
             >
               {navLinks}
             </ul>
           </div>
-          <Link to={"/"} className="w-16">
-            <img src={logo} alt="" />
+          <Link to={"/"} className="">
+            <img className="w-20" src={logo} alt="" />
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
