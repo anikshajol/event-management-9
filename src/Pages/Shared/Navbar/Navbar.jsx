@@ -38,12 +38,13 @@ const Navbar = () => {
           About
         </NavLink>
       </li>
+
       <li>
         <NavLink
           className={({ isActive }) => (isActive ? "nav-btn" : "")}
-          to={"/events"}
+          to={"/booking"}
         >
-          Events
+          Booking
         </NavLink>
       </li>
       <li>
@@ -51,7 +52,7 @@ const Navbar = () => {
           className={({ isActive }) => (isActive ? "nav-btn" : "")}
           to={"/contact"}
         >
-          Booking
+          Contact Us
         </NavLink>
       </li>
     </>

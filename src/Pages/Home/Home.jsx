@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import image1 from "../../assets/brides-couple-cutting-wedding-cake.jpg";
 import "./Home.css";
 import Footer from "../Shared/Footer/Footer";
+import bg from "../../assets/beautiful-photozone-with-big-wreath-decorated-with-greenery-roses-centerpiece-candles-sides-garland-hanged-trees.jpg";
+import Event from "../event/event";
 
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -12,6 +14,7 @@ import Loading from "../Shared/Loading/Loading";
 
 const Home = () => {
   const { user } = useContext(AuthContext);
+  const events = useLoaderData();
   const [loader, setLoader] = useState(true);
 
   useEffect(() => {
@@ -24,7 +27,7 @@ const Home = () => {
 
   useEffect(() => {
     AOS.init({
-      duration: 1000,
+      duration: 2000,
       once: false,
     });
   }, []);
@@ -35,6 +38,7 @@ const Home = () => {
         <Loading></Loading>
       ) : (
         <div data-aos="flip-down" className="px-1 md:px-0 overflow-hidden">
+          {/* banner section */}
           <div
             className="hero min-h-screen "
             style={{
@@ -53,11 +57,11 @@ const Home = () => {
                 <div className="flex flex-col items-center md:flex-row-reverse justify-center gap-5 ">
                   {!user ? (
                     <Link to="/register">
-                      <button className=" get-started">Get Started</button>
+                      <button className=" get-started">Register</button>
                     </Link>
                   ) : (
-                    <Link to="/events">
-                      <button className=" get-started">Our Events</button>
+                    <Link to="/booking">
+                      <button className=" get-started">Booking Now</button>
                     </Link>
                   )}
                   <Link to={"/about"}>
@@ -67,6 +71,8 @@ const Home = () => {
               </div>
             </div>
           </div>
+
+          {/* offer section */}
 
           <div className="  md:px-2 discount-offer flex flex-col justify-center  lg:flex-row md:justify-around items-center ">
             <div data-aos="flip-down" className="px-4 ">
@@ -79,20 +85,45 @@ const Home = () => {
                 Contact us and make your event unique & unforgettable{" "}
               </p>
             </div>
-            <div>
+            <Link to={"/contact"}>
               <button className="offer-btn">Contact us</button>
+            </Link>
+          </div>
+
+          {/* service section */}
+
+          <div data-aos="fade" className="mb-8">
+            <h2 className="text-5xl text-center bg-black text-white py-3 md:py-10 ">
+              {" "}
+              Our Services{" "}
+            </h2>
+            <div
+              className="hero min-h-screen"
+              style={{
+                backgroundImage: `url(${bg})`,
+              }}
+            >
+              <div className="hero-overlay bg-black bg-opacity-80"></div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-2 lg:px-6">
+                {events.map((event) => (
+                  <Event key={event.id} event={event}></Event>
+                ))}
+              </div>
             </div>
           </div>
 
           {/* gallery section */}
 
-          <div className="mt-4" data-aos="flip-down">
-            <h2 className="text-3xl text-center">
-              Anifa Events Gallery And Our Services
-            </h2>
-            <h2 className="text-5xl font-extrabold text-center pt-2 mb-16">
-              Excellent & Unforgettable Moments
-            </h2>
+          <div className="mt-4">
+            <div data-aos="flip-down">
+              <h2 className="text-3xl text-center">
+                Anifa Events Gallery And Our Services
+              </h2>
+              <h2 className="text-5xl font-extrabold text-center pt-2 mb-16">
+                Excellent & Unforgettable Moments
+              </h2>
+            </div>
 
             <div className="px-1">
               <Gallery></Gallery>

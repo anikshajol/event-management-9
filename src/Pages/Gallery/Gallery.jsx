@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import "./Gallery.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Gallery = () => {
   const [images, setImages] = useState([]);
@@ -10,12 +12,19 @@ const Gallery = () => {
       .then((data) => setImages(data));
   }, []);
 
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false,
+    });
+  }, []);
+
   return (
     <>
       <div className=" grid grid-cols-1 md:grid-cols-3 gap-4">
         {images.length > 6
           ? images.slice(0, imagesLength).map((image) => (
-              <div key={image.id}>
+              <div data-aos="zoom-in" key={image.id}>
                 <img
                   className="h-auto max-w-full rounded-lg"
                   src={image.imageUrl}
@@ -24,7 +33,7 @@ const Gallery = () => {
               </div>
             ))
           : images.map((image) => (
-              <div key={image.id}>
+              <div data-aos="zoom-in" key={image.id}>
                 <img
                   className="h-auto max-w-full rounded-lg"
                   src={image.imageUrl}

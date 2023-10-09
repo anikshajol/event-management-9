@@ -1,12 +1,25 @@
 import { Link } from "react-router-dom";
 import "./Event.css";
 import PropTypes from "prop-types";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const Event = ({ event }) => {
   const { image, title, price, description, id } = event;
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false,
+    });
+  }, []);
   return (
     <div>
-      <div className="card card-compact h-96 bg-transparent text-white border-gray-200 border shadow-xl">
+      <div
+        data-aos="zoom-in"
+        className="card card-compact h-96 bg-transparent text-white border-gray-200 border shadow-xl"
+      >
         <figure>
           <img src={image} alt="" />
         </figure>
