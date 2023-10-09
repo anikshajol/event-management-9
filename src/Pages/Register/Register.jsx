@@ -39,8 +39,10 @@ const Register = () => {
             photoURL: photo,
           })
             .then(() => {
-              toast.success("Account Create Success!");
+              toast.success("Account Registration Successfull!");
               // return signOut(auth); disable auto login after registration if need
+              // window.location.reload();
+              navigate("/");
             })
             .catch((error) => {
               console.log(error);
