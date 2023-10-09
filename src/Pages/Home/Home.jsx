@@ -26,10 +26,9 @@ const Home = () => {
 
   return (
     <>
-      <div data-aos="flip-down" className="px-1 md:px-0">
+      <div data-aos="flip-down" className="px-1 md:px-0 overflow-hidden">
         <div
-          data-aos="flip-down"
-          className="hero min-h-screen"
+          className="hero min-h-screen "
           style={{
             backgroundImage: `url(${image1})`,
           }}
@@ -43,10 +42,7 @@ const Home = () => {
                 Anniversaries,Engagement Parties, Retirement Parties, Baby
                 shower, etc.
               </p>
-              <div
-                className="flex flex-col items-center md:flex-row-reverse justify-center gap-5 "
-                data-aos="flip-down"
-              >
+              <div className="flex flex-col items-center md:flex-row-reverse justify-center gap-5 ">
                 {!user ? (
                   <Link to="/register">
                     <button className=" get-started">Get Started</button>
@@ -63,7 +59,8 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="  md:px-0 discount-offer flex flex-col justify-center  lg:flex-row md:justify-around items-center ">
+
+        <div className="  md:px-2 discount-offer flex flex-col justify-center  lg:flex-row md:justify-around items-center ">
           <div data-aos="flip-down" className="px-4 ">
             <h2 className="text-white font-semibold text-2xl">
               <span className="text-4xl font-bold text-[#ffbe30;]">30%</span>{" "}
@@ -89,7 +86,7 @@ const Home = () => {
             Excellent & Unforgettable Moments
           </h2>
 
-          <div>
+          <div className="px-1">
             <Gallery></Gallery>
           </div>
         </div>
