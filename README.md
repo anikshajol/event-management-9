@@ -4,8 +4,6 @@
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
-
 - Events Feature(wedding,birthday etc.)
 - Registration page with Name,Photo Url, email and password. Also have a google login/sign up button.
 - Authentication with Firebase.

@@ -82,7 +82,9 @@ const Home = () => {
         {/* gallery section */}
 
         <div className="mt-4" data-aos="flip-down">
-          <h2 className="text-3xl text-center">Anifa Events Gallery</h2>
+          <h2 className="text-3xl text-center">
+            Anifa Events Gallery And Our Services
+          </h2>
           <h2 className="text-5xl font-extrabold text-center pt-2 mb-16">
             Excellent & Unforgettable Moments
           </h2>
