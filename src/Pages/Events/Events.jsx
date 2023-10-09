@@ -5,7 +5,7 @@ import Footer from "../Shared/Footer/Footer";
 
 const Events = () => {
   const events = useLoaderData();
-  console.log(events);
+  // console.log(events);
   return (
     <div className="">
       <h2 className="text-5xl text-center bg-black text-white py-3">

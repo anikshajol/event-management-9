@@ -14,6 +14,7 @@ const Register = () => {
   const [error, setError] = useState("");
   const { signInWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
+  // const auth = getAuth(app);
 
   const { createUser } = useContext(AuthContext);
 
@@ -38,8 +39,8 @@ const Register = () => {
             photoURL: photo,
           })
             .then(() => {
-              console.log("profile name update");
               toast.success("Account Create Success!");
+              // return signOut(auth); disable auto login after registration if need
             })
             .catch((error) => {
               console.log(error);

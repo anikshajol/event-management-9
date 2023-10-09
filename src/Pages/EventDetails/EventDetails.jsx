@@ -6,7 +6,7 @@ import Footer from "../Shared/Footer/Footer";
 const EventDetails = () => {
   const [eventsData, setEventsData] = useState([]);
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
 
   useEffect(() => {
     fetch("/data.json")
@@ -25,8 +25,8 @@ const EventDetails = () => {
         }}
       >
         <div className="hero-overlay bg-black bg-opacity-80"></div>
-        <div className="card w-1/2 pb-10   bg-transparent text-white shadow-2xl">
-          <figure>
+        <div className=" card w-full md:w-1/2  pb-10   bg-transparent text-white shadow-2xl">
+          <figure className="px-4 md:px-0">
             <img
               className="h-1/2"
               src={eventData?.image}
@@ -43,12 +43,10 @@ const EventDetails = () => {
               Price: ${eventData?.price}{" "}
             </p>
             <div className="card-actions justify-end">
-              {eventData?.features?.map((feature) => (
-                <>
-                  <div className="badge badge-outline text-[#f09819] ">
-                    {feature}
-                  </div>
-                </>
+              {eventData?.features?.map((feature, idx) => (
+                <div key={idx} className="badge badge-outline text-[#f09819] ">
+                  {feature}
+                </div>
               ))}
             </div>
           </div>
