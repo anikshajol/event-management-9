@@ -4,17 +4,13 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
 import toast from "react-hot-toast";
-import Loading from "../Shared/Loading/Loading";
 
 const Login = () => {
   const [error, setError] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
 
-  const { loginUser, signInWithGoogle, loading } = useContext(AuthContext);
-  if (loading) {
-    return <Loading></Loading>;
-  }
+  const { loginUser, signInWithGoogle } = useContext(AuthContext);
 
   const handleLogin = (e) => {
     e.preventDefault();
